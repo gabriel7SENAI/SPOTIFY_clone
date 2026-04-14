@@ -4,6 +4,7 @@ import {
   push,
   set,
   get,
+  remove,
 } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
 const referencia = ref(database, "musicas");
@@ -27,4 +28,10 @@ export async function lerTudo() {
   } else {
     return null;
   }
+}
+
+// REMOVER
+export function remover(id) {
+  const referenciaItem = ref(database, "musicas/" + id);
+  remove(referenciaItem);
 }
